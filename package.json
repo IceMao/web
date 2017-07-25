@@ -1,4 +1,7 @@
 {
+  "name": "iceblog",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --inline --hot"
@@ -12,5 +15,18 @@
     "vue-loader": "^13.0.2",
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IceMao/web.git"
+  },
+  "author": "icemao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icemao/web/issues"
+  },
+  "homepage": "https://github.com/icemao/web#readme",
+  "dependencies": {
+    
   }
 }
