@@ -1,8 +1,21 @@
 {
+  "name": "web",
+  "version": "1.0.0",
+  "description": "vue2、webpack2",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --inline --hot"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IceMao/web.git"
+  },
+  "author": "ice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IceMao/web/issues"
+  },
+  "homepage": "https://github.com/IceMao/web#readme",
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.2",
