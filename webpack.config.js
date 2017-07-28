@@ -20,7 +20,7 @@ const tmplPath = path.resolve(__dirname, './app/tmpl');
 
 console.log('当前运行环境：', isPro ? 'production' : 'development');
 
-var resolve = function (dir) {
+var resolve = function(dir) {
     return path.join(__dirname, dir);
 };
 
@@ -32,11 +32,12 @@ var plugins = [
         template: path.resolve(tmplPath, 'template.ejs'),
         inject: 'body',
         chunks: ['index'],
+        favicon: './app/common/images/blog-icon.ico', // 图标
         hash: true,
         cache: false
     }),
     new webpack.DefinePlugin({
-        'process.env':{
+        'process.env': {
             'NODE_ENV': JSON.stringify(nodeEnv)
         }
     }),
@@ -88,11 +89,11 @@ module.exports = {
             use: ['babel-loader'],
             exclude: /node_modules/,
             include: resolve('/')
-        },{
+        }, {
             test: /\.vue$/,
             use: ['vue-loader'],
             exclude: /node_modules/,
-            include: resolve('views')
+            // include: resolve('views')
         }, {
             test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
             use: ['url-loader?limit=10000&name=files/[name].[hash:7].[ext]']

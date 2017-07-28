@@ -4,31 +4,22 @@
 import Vue from "vue";
 import vueRouter from 'vue-router';
 import vueResource from 'vue-resource';
+import routes from './config/routes';
 
 Vue.use(vueRouter);
 Vue.use(vueResource);
 
-const NotFound = { template: '<h2>NotFound </h2>' }
-const Home = { template: '<p>我是谁！！！</p>' }
-const About = { template: '<h1>About </h1>' }
-
+//style
+// require('./common/styles/bootstrap.min.css');
 require('./common/styles/common.css');
 
+//script
+require('./common/scripts/bootstrap.min.js');
+require('./common/scripts/jquery.goup.min.js');
 //路由
-const routes = [{
-    path: '/home',
-    component: Home
-},{
-    path: '/about',
-    component: About
-},{
-    path: '/not',
-    component: NotFound
-}];
-
 const router = new vueRouter({
-  hashbang: false,
-  mode: 'history',
+    hashbang: false,
+    mode: 'history',
     routes
 });
 
