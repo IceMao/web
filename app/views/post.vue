@@ -56,7 +56,7 @@
     <c-header></c-header>
     <div class="recommended" title="">
         <div class="recommended-arrow">
-            <a href="#recommended">推荐</a>
+            <a href="#recommended">Post</a>
         </div>
     </div>
     <!-- 推荐 end-->
@@ -65,7 +65,7 @@
             <div class="col-md-12 col-sm-12 ">
                 <h2 class="title">Example body text</h2>
                 <div class="message">
-                    Author: <span>Ice</span>
+                    Tags: <span>Html</span>
                     Time: <span>02/03/2017</span>
                 </div>
                 <div class="lead content">
@@ -80,55 +80,18 @@
                     </p>
                 </div>
                 <!--文章 end-->
-                <div class="well">
-                    <ul class="nav nav-pills">
-                        <li class="active"><a href="#">回复 <span class="badge">42</span></a></li>
-                        <li><a href="#">浏览量 <span class="badge">4</span></a></li>
-                        <li><a href="#">用户 <span class="badge">3</span></a></li>
-                        <li><a href="#">赞 <span class="badge">41</span></a></li>
-                    </ul>
-                </div>
-                <!-- little end-->
                 <hr>
-                <div class="list-group">
-                        <div class="row reply">
-                            <div class="col-md-1">
-                                <div class="replay-img"></div>
-                            </div>
-                            <div class="col-md-11">
-                                <div class="replay-content">
-                                rna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus etmagnis dis
-                                parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies 
-                                vehicula.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row reply">
-                            <div class="col-md-1">
-                                <div class="replay-img"></div>
-                            </div>
-                            <div class="col-md-11">
-                                <div class="replay-content">
-                                rna mollis ornare vel eu leo. Cum sociis natoque penatibus etmagnis dis parturient
-                                montes, nascetur ridiculus  rna mollis ornare vel eu leo. Cum sociis natoque penatibus
-                                etmagnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh
-                                ultricies vehicula.
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <!-- 留言 end-->
             </div>
             <!--文章 end-->            
-            <div id="recommended" class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                <h3>推荐主题</h3>
+            <div id="recommended" class="col-md-12 col-sm-12">
+                <h3>Post</h3>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>主题</th>
-                                <th>发表时间</th>
-                                <th>浏览量</th>
+                                <th>Title</th>
+                                <th>Time</th>
+                                <th>Tags</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -1,6 +1,56 @@
 /**
  * Created by ice on 2017/7/20.
  */
+<style>
+.post-title a{
+    font-family: -webkit-pictograph, 'Quicksand', sans-serif;
+    text-decoration: none;
+}
+.post-content{
+    font-size: 20px;
+    padding-left: 12px;
+}
+.post-more{
+    padding: 9px 18px;
+    margin-left: 12px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    color: #484848;
+    background: #e8e8e8;
+    cursor: pointer;
+}
+.post-more:hover{
+    text-decoration: none;
+    color: #2e749a;
+    background: #dcdcdc;
+}
+.post-time{
+    margin-left: 12px;
+    font-size: 16px;
+    color: #b5b5b5;
+}
+.tag-title{
+    font-size: 19px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.tag-list{
+    font-size: 14px;
+}
+.tag-list li{
+    padding: 0px 6px;
+    margin-bottom: 7px;
+    margin-right: 5px; 
+    display: inline-block;
+    background: #ddd;
+    cursor: pointer;
+}
+.tag-list li:hover{
+    background: lightblue;
+}
+</style>
 <template>
   <div>
     <c-header></c-header>
@@ -16,138 +66,63 @@
     <!-- image end-->
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="btn-toolbar">
-                    <div class="btn-group">
-                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">所有分类&nbsp;<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
+            <div class="col-md-9 post-list">
+                <div class="post">
+                    <h2 class="post-title"><a href="/post">编辑资源菜单 - Azure Portal SDK</a></h2>
+                    <div class="post-content">
+
+                        <p>在进行Azure Portal Extension开发过程中，避免不了对资源菜单的扩展，于是菜单内容在<code>./Client/Browser/ViewModels/AssetTypeViewModel.ts</code>中。</p>
+<p>在<code>getMenuConfig</code>方法中添加一个菜单：</p>
+<pre><code class="hljs coffeescript">        <span class="hljs-reserved">var</span> <span class="hljs-attribute">yukoItem</span>: MsPortalFx.Assets.MenuItem = {
+            <span class="hljs-attribute">id</span>: <span class="hljs-string">"yuko"</span>,
+            <span class="hljs-attribute">displayText</span>: <span class="hljs-string">"Yuko Amamiya"</span>,
+            <span class="hljs-attribute">icon</span>: ClientIcons.Icons.cloudService,
+            <span class="hljs-attribute">supplyBladeReference</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                <span class="hljs-keyword">return</span> ... <span class="hljs-regexp">//</span> 稍后将使其跳转到一个新的blade上
+            }
+        };
+</code></pre><p>找到<code>menuConfig</code>，向指定段中添加上述创建的<code>yukoItem</code>：</p>
+
                     </div>
-                    <a href="#" class="btn btn-danger">最新</a>
-                    <a href="#" class="btn btn-default">分类</a>
+                    <a class="post-more">MORE</a>
+                    <div class="post-time">Published on 4/5/2017</div>
+                </div>
+                <div class="post">
+                    <h2 class="post-title">编辑资源菜单 - Azure Portal SDK</h2>
+                    <div class="post-content">
+
+                        <p>在进行Azure Portal Extension开发过程中，避免不了对资源菜单的扩展，于是菜单内容在<code>./Client/Browser/ViewModels/AssetTypeViewModel.ts</code>中。</p>
+<p>在<code>getMenuConfig</code>方法中添加一个菜单：</p>
+<pre><code class="hljs coffeescript">        <span class="hljs-reserved">var</span> <span class="hljs-attribute">yukoItem</span>: MsPortalFx.Assets.MenuItem = {
+            <span class="hljs-attribute">id</span>: <span class="hljs-string">"yuko"</span>,
+            <span class="hljs-attribute">displayText</span>: <span class="hljs-string">"Yuko Amamiya"</span>,
+            <span class="hljs-attribute">icon</span>: ClientIcons.Icons.cloudService,
+            <span class="hljs-attribute">supplyBladeReference</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                <span class="hljs-keyword">return</span> ... <span class="hljs-regexp">//</span> 稍后将使其跳转到一个新的blade上
+            }
+        };
+</code></pre><p>找到<code>menuConfig</code>，向指定段中添加上述创建的<code>yukoItem</code>：</p>
+
+                    </div>
+                    <div class="post-more">更多</div>
+                    <div class="post-time">Published on 4/5/2017</div>
                 </div>
             </div>
-            <!--列表上面的btn end-->
-            <div class="col-md-12 col-sm-12">
-                <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>主题</th>
-                                <th>分类</th>
-                                <th>参与者</th>
-                                <th>回复</th>
-                                <th>浏览</th>
-                                <th>活动</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="/post">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="/post">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td> 
-                            </tr>
-                            <tr>
-                                <td><a href="/post">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="/post">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="/post">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="/post">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">Lumo 1.3.0 is out with a number of new features and small fixes!</a></td>
-                                <td>23/11/2013</td>
-                                <td>待发货</td>
-                                <td>产品4</td>
-                                <td>20/10/2013</td>
-                                <td>已退货</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="col-md-3">
+                <div class="tag">   
+                    <p class="tag-title">Tags</p>
+                    <ul class="tag-list">
+                        <li>NEW</li>
+                        <li>HTML</li>
+                        <li>NODEJs</li>
+                        <li>VueJs</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>AngularJs</li>
+                    </ul>
                 </div>
             </div>
-            <!-- 列表 end-->
+            <!-- /postList-->
         </div>
     </div>
   </div>
