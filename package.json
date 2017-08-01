@@ -4,7 +4,7 @@
     "description": "vue2、webpack2",
     "main": "index.js",
     "scripts": {
-        "start": "webpack-dev-server --inline --hot"
+        "start": "webpack-dev-server --hot --inline --progress --color --config webpack.config.js"
     },
     "repository": {
         "type": "git",

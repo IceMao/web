@@ -27,8 +27,10 @@
     background: #dcdcdc;
 }
 .post-time{
+    
     margin-left: 12px;
     font-size: 16px;
+    font-family: -webkit-pictograph, 'Quicksand', sans-serif;
     color: #b5b5b5;
 }
 .tag-title{
@@ -85,7 +87,7 @@
 
                     </div>
                     <a class="post-more">MORE</a>
-                    <div class="post-time">Published on 4/5/2017</div>
+                    <div class="post-time">Posted @ 04/05/2017</div>
                 </div>
                 <div class="post">
                     <h2 class="post-title">编辑资源菜单 - Azure Portal SDK</h2>
@@ -105,7 +107,7 @@
 
                     </div>
                     <div class="post-more">更多</div>
-                    <div class="post-time">Published on 4/5/2017</div>
+                    <div class="post-time">Posted @ 4/5/2017</div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -125,11 +127,14 @@
             <!-- /postList-->
         </div>
     </div>
+    <c-footer></c-footer>
+    <!-- /footer-->
   </div>
 </template>
 
 <script>
 import cHeader from './components/c-header.vue';
+import cFooter from './components/c-footer.vue';
 export default {
   data(){
     return {
@@ -138,9 +143,18 @@ export default {
   },
   components:{
     'c-header': cHeader,
+    'c-footer': cFooter,
   },
   created(){
     console.log("Index");
+    this.$http.post('http://www.citywealth.cn/importNews', {
+    "SubTitle":"","Time_end":"","Time_start":"","Title":"","Page_current":"1","Position":"1","Rows_per_page":"5"
+    }).then((response) => {
+        this.artList = response.data.Data;
+        console.info("1 ", response.data.Data);
+    }).catch(function(response) {
+        console.warn("错误", response);
+    });
   }
 }
     
