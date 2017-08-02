@@ -133,8 +133,8 @@
 </template>
 
 <script>
-import cHeader from './components/c-header.vue';
-import cFooter from './components/c-footer.vue';
+import cHeader from 'components/c-header.vue';
+import cFooter from 'components/c-footer.vue';
 export default {
   data(){
     return {

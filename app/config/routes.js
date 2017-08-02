@@ -3,6 +3,7 @@
  */
 import Index from './../views/index.vue';
 import Post from './../views/post.vue';
+import Edit from './../views/edit.vue';
 
 export default [{
     path: '/',
@@ -13,4 +14,7 @@ export default [{
 }, {
     path: '/post',
     component: Post
+}, {
+    path: '/edit',
+    component: Edit
 }]

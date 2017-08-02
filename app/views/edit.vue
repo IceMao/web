@@ -1,66 +1,93 @@
 /**
  * Created by ice on 2017/8/1.
  */
-<style>
-textarea,
-.preview {
-    display: inline-block;
-    width: 49%;
-    height: 100%;
-    vertical-align: top;
+<style lang="scss" scoped>
+#edit{
+    input:focus {
+        outline: none;
+    }
+    .main{
+        margin-top: 20px;
+        .editcontent{
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding: 12px 15px;
+            resize: none;
+            background: #cdcdcd;
+            &:focus {
+                outline: none;
+            }
+        }
+        .preview {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding: 12px 15px;
+            background: #ddd;
+        }
+    }
+    
 }
-textarea {
-    min-height: 700px;
-    height: 100px;
-    max-height: 500px;
-    padding: 5px;
-    box-sizing: border-box;
-    resize: none;
-    border-color: #eee;
-}
-textarea:focus {
-    outline: none;
-}
-.preview {
-    height: auto;
-    max-height: 700px;
-    margin-left: 8px;
-    overflow: auto;
-    background: #fcfaf2;
-}
+  
 </style>
 <template>
-  <div>
-    <c-header></c-header>
-    <div class="container">
-        <input type="text" placeholder="title" v-model="post.Title">
-        <input type="text" placeholder="type" v-model="post.CategoryName">
-        <div class="editArtical">
-            <textarea rows="10" name="ArticleContent" id="txt_ArticleContent" @keyup="compile()">{{post.ArticleContent}}</textarea>
-            <div class="preview" id="result"></div>
+    <div id="edit" class="container-fluid ">
+        <div class="row main">
+            <div class="col-md-6 col-sm-6">
+                <input type="text" placeholder="title" v-model="post.Title">
+                <input type="text" placeholder="type" v-model="post.CategoryName">
+                <textarea class=" editcontent" name="ArticleContent" id="txt_ArticleContent" v-model="post.ArticleContent" @keyup="compile()"></textarea>
+            </div>
+            
+            <div class="col-md-6 col-sm-6">
+                <div class="preview" id="result"></div>
+            </div>
         </div>
         <button @click="submit()">提交</button>
     </div>
-    <c-footer></c-footer>
-    <!-- /footer-->
-  </div>
 </template>
 
 <script>
-import cHeader from './components/c-header.vue';
-import cFooter from './components/c-footer.vue';
+import cHeader from 'components/c-header.vue';
+import cFooter from 'components/c-footer.vue';
 export default {
   data(){
     return {
-      msg:"edit"
+      msg:"edit",
+      post:{
+          Title:'title',
+          CategoryName:'categoryName',
+          ArticleContent:'content'
+      }
     }
+  },
+  methods:{
+    compile: function() {
+        var text = document.getElementById("txt_ArticleContent").value;
+        var converter = new showdown.Converter();
+        //支持显示如同github的勾选框，默认false
+        //ep: - [x] This task is done
+        converter.setOption("tasklists", true);
+        //支持显示table，默认false
+        converter.setOption("tables", true);
+        //支持图片大小设置，默认为false
+        converter.setOption("parseImgDimensions", true);
+        /**
+         **更多地请看https://github.com/showdownjs/showdown文档
+            **/
+        var html = converter.makeHtml(text);
+        console.info("make", html);
+        document.getElementById("result").innerHTML = html;
+    },
+
   },
   components:{
     'c-header': cHeader,
     'c-footer': cFooter,
   },
   created(){
-    console.log("Index");
+    console.info("Index**",showdown);
     this.$http.post('http://www.citywealth.cn/importNews', {
     "SubTitle":"","Time_end":"","Time_start":"","Title":"","Page_current":"1","Position":"1","Rows_per_page":"5"
     }).then((response) => {

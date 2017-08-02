@@ -41,6 +41,15 @@ var plugins = [
             'NODE_ENV': JSON.stringify(nodeEnv)
         }
     }),
+    new webpack.LoaderOptionsPlugin({
+        options: {
+            vue: {
+                loaders: {
+                    scss: 'vue-style-loader!css-loader!sass-loader'
+                }
+            },
+        }
+    }),
 ];
 if (isPro) {
     plugins.push(
@@ -78,8 +87,9 @@ module.exports = {
             path.join(appPath)
         ],
         alias: {
-            'static': path.join(appPath, 'common'),
+            'scripts': path.join(appPath, 'common/scripts'),
             'components': path.join(appPath, 'views/components'),
+            'styles': path.join(appPath, 'common/styles'),
             'vue': path.join(__dirname, '/node_modules/vue/dist/vue')
         }
     },

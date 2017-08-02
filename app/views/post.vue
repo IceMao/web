@@ -130,7 +130,7 @@
 </div>
 </template>
 <script>
-    import cHeader from './components/c-header';
+    import cHeader from 'components/c-header';
     export default {
         data(){
             return {

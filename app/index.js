@@ -5,17 +5,18 @@ import Vue from "vue";
 import vueRouter from 'vue-router';
 import vueResource from 'vue-resource';
 import routes from './config/routes';
-
+import showdown from 'showdown';
 Vue.use(vueRouter);
 Vue.use(vueResource);
 
 //style
 // require('./common/styles/bootstrap.min.css');
-require('./common/styles/common.css');
+require('styles/common.css');
 
 //script
-require('./common/scripts/bootstrap.min.js');
-require('./common/scripts/jquery.goup.min.js');
+require('scripts/bootstrap.min.js');
+require('scripts/jquery.goup.min.js');
+
 //路由
 const router = new vueRouter({
     hashbang: false,

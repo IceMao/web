@@ -7,7 +7,6 @@
  }
  </style>
 <template>
-  <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -40,7 +39,6 @@
         </div>
     </nav>
     <!-- nav end-->
-  </div>
 </template>
 
 <script>
