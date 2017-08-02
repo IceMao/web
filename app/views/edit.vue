@@ -3,28 +3,41 @@
  */
 <style lang="scss" scoped>
 #edit{
+    height: 400px;
     input:focus {
+        box-shadow: none;
         outline: none;
     }
     .main{
         margin-top: 20px;
-        .editcontent{
-            box-sizing: border-box;
-            width: 100%;
+        height: inherit;
+        .edit-main{
             height: 100%;
-            padding: 12px 15px;
-            resize: none;
-            background: #cdcdcd;
-            &:focus {
-                outline: none;
+            background: #fff;
+            border-right: 1px solid #d9d9d9;
+            .edit-set{
+                height: 36px;
+                width: 100%;
+                background: #d9d9d9;
+            }
+            .editcontent{
+                width: 100%;
+                height: 100%;
+                resize: none;
+                &:focus {
+                    box-shadow: none;
+                    outline: none;
+                }
             }
         }
         .preview {
             box-sizing: border-box;
-            width: 100%;
             height: 100%;
-            padding: 12px 15px;
-            background: #ddd;
+            padding: 40px;
+            background: #fcfaf2;
+            .preview-title {
+                font-size: 24px;
+            }
         }
     }
     
@@ -34,14 +47,17 @@
 <template>
     <div id="edit" class="container-fluid ">
         <div class="row main">
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-6 col-sm-6 edit-main">
                 <input type="text" placeholder="title" v-model="post.Title">
                 <input type="text" placeholder="type" v-model="post.CategoryName">
-                <textarea class=" editcontent" name="ArticleContent" id="txt_ArticleContent" v-model="post.ArticleContent" @keyup="compile()"></textarea>
-            </div>
-            
-            <div class="col-md-6 col-sm-6">
-                <div class="preview" id="result"></div>
+                <div class="edit-set">
+
+                </div>
+                <textarea class="editcontent" name="ArticleContent" id="txt_ArticleContent" v-model="post.ArticleContent" @keyup="compile()"></textarea>
+            </div>           
+            <div class="col-md-6 col-sm-6 preview">
+                <div class="preview-title">{{post.Title}}</div>
+                <div id="result"></div>
             </div>
         </div>
         <button @click="submit()">提交</button>
