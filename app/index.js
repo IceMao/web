@@ -16,7 +16,7 @@ require('styles/common.css');
 //script
 require('scripts/bootstrap.min.js');
 require('scripts/jquery.goup.min.js');
-
+// require('scripts/showdown.js');
 //路由
 const router = new vueRouter({
     hashbang: false,

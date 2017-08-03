@@ -9,20 +9,31 @@
         outline: none;
     }
     .main{
-        margin-top: 20px;
         height: inherit;
         .edit-main{
             height: 100%;
+            padding-top: 20px;
             background: #fff;
             border-right: 1px solid #d9d9d9;
             .edit-set{
                 height: 36px;
                 width: 100%;
                 background: #d9d9d9;
+                span{
+                    padding-right: 20px;
+                    font-size: 16px;
+                    line-height: 36px;
+                    float: right;
+                    cursor: pointer;
+                    &:hover {
+                        color: #32f;
+                    }
+                }
             }
             .editcontent{
                 width: 100%;
                 height: 100%;
+                padding:20px;
                 resize: none;
                 &:focus {
                     box-shadow: none;
@@ -51,7 +62,8 @@
                 <input type="text" placeholder="title" v-model="post.Title">
                 <input type="text" placeholder="type" v-model="post.CategoryName">
                 <div class="edit-set">
-
+                    <a href="index">Ice</a>
+                    <span @click="save()">Save</span>
                 </div>
                 <textarea class="editcontent" name="ArticleContent" id="txt_ArticleContent" v-model="post.ArticleContent" @keyup="compile()"></textarea>
             </div>           
