@@ -3,7 +3,7 @@
  */
 <style lang="scss" scoped>
 #edit{
-    height: 400px;
+    height: 100%;
     input:focus {
         box-shadow: none;
         outline: none;
@@ -32,7 +32,7 @@
             }
             .editcontent{
                 width: 100%;
-                height: 100%;
+                height: calc(100% - 101px);
                 padding:20px;
                 resize: none;
                 &:focus {
@@ -43,10 +43,10 @@
         }
         .preview {
             box-sizing: border-box;
-            height: 100%;
             padding: 40px;
             background: #fcfaf2;
             .preview-title {
+                margin-bottom: 20px;
                 font-size: 24px;
             }
         }
@@ -66,13 +66,13 @@
                     <span @click="save()">Save</span>
                 </div>
                 <textarea class="editcontent" name="ArticleContent" id="txt_ArticleContent" v-model="post.ArticleContent" @keyup="compile()"></textarea>
+                <button @click="submit()">提交</button>
             </div>           
             <div class="col-md-6 col-sm-6 preview">
                 <div class="preview-title">{{post.Title}}</div>
                 <div id="result"></div>
             </div>
         </div>
-        <button @click="submit()">提交</button>
     </div>
 </template>
 

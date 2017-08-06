@@ -2,6 +2,20 @@
  * Created by ice on 2017/7/20.
  */
 <style>
+.index-jumbotron {
+    margin: 64px 0 48px;
+    position: relative;
+}
+
+.index-jumbotron>a {
+    width: 100%;
+    font-size: 21px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 49%;
+    color: #fff;
+}
 .post-title a{
     font-family: -webkit-pictograph, 'Quicksand', sans-serif;
     text-decoration: none;
@@ -56,14 +70,9 @@
 <template>
   <div>
     <c-header></c-header>
-    <div class="jumbotron index-jumbotron text-center">
-        <div class="hidden">
-            <img src="./../common/images/tree.svg" alt="ice" title="Ice">
-        </div>
-        <div class="container">
-            <h1 class="text-hide"><img src="./../common/images/tree3.svg"></h1>
-            <p class="lead">ice</p>
-        </div>
+    <div class="index-jumbotron text-center">
+        <img src="app/common/images/banner.jpg" width="100%" title="banner">
+        <a class="lead hidden-xs">编辑资源菜单 - Azure Portal SDK</a>
     </div>
     <!-- image end-->
     <div class="container">
