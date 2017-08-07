@@ -1,4 +1,4 @@
-<style>
+<style lang="scss" scoped>
 /* 推荐 recommended*/
 .recommended{
     position: fixed; z-index: 999;width: 40px; height: 40px; background: #2199d6; cursor: pointer; bottom: 72px; right: 30px; border-radius: 10px;

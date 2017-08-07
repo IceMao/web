@@ -1,7 +1,7 @@
 /**
  * Created by ice on 2017/7/20.
  */
-<style>
+<style lang="scss" scoped>
 .index-jumbotron {
     margin: 0 0 48px;
     position: relative;
