@@ -5,9 +5,27 @@
  .c-blog{
      padding: 7.5px 15px!important;
  }
+ .navbar {
+    margin-bottom: 0;
+ }
+ [type=text].form-control:focus {
+    -webkit-box-shadow: inset 0 -2px 0 #dcdcdc;
+    box-shadow: inset 0 -2px 0 #dcdcdc;
+ }
+ .headImg {
+    background: url('./../../common/images/navbarImg.jpg') no-repeat;
+    background-size: cover;
+}
+.headImg .navbar-nav>li>a {
+    color: #fff;
+}
+.headImg .form-control {
+    color: #fff;
+}
+
  </style>
 <template>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav id="nav" class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -42,7 +60,6 @@
 </template>
 
 <script>
-    console.info("head")
     $(document).ready(function () {
         $.goup({
             trigger: 450,

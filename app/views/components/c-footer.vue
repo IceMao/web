@@ -18,5 +18,4 @@
 </template>
 
 <script>
-    console.info("footer")
 </script>

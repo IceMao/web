@@ -61,7 +61,7 @@
     </div>
     <!-- 推荐 end-->
     <div class="container">
-        <div class="row post" style="padding-top:90px;">
+        <div class="row post">
             <div class="col-md-12 col-sm-12 ">
                 <h2 class="title">Example body text</h2>
                 <div class="message">

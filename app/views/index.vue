@@ -3,7 +3,7 @@
  */
 <style>
 .index-jumbotron {
-    margin: 64px 0 48px;
+    margin: 0 0 48px;
     position: relative;
 }
 
@@ -15,6 +15,9 @@
     position: absolute;
     top: 49%;
     color: #fff;
+}
+.padd-top {
+    padding-top: 48px;
 }
 .post-title a{
     font-family: -webkit-pictograph, 'Quicksand', sans-serif;
@@ -66,6 +69,7 @@
 .tag-list li:hover{
     background: lightblue;
 }
+
 </style>
 <template>
   <div>
@@ -75,7 +79,7 @@
         <a class="lead hidden-xs">编辑资源菜单 - Azure Portal SDK</a>
     </div>
     <!-- image end-->
-    <div class="container">
+    <div id="content" class="container">
         <div class="row">
             <div class="col-md-9 post-list">
                 <div class="post">
@@ -147,24 +151,41 @@ import cFooter from 'components/c-footer.vue';
 export default {
   data(){
     return {
-      msg:"index"
+      scroll: ''
+    }
+  },
+  methods: {
+    menu() {
+        this.scroll = $(document).scrollTop();
+        let scrollTop = $('.index-jumbotron').height();
+        if(this.scroll >= scrollTop){
+            $('#nav').addClass('headImg navbar-fixed-top');
+            $('#content').addClass('padd-top')
+        }else{
+            $('#nav').removeClass('headImg navbar-fixed-top');
+            $('#content').removeClass('padd-top')
+        }
     }
   },
   components:{
     'c-header': cHeader,
     'c-footer': cFooter,
   },
+  watch: {
+  },
   created(){
-    console.log("Index");
-    this.$http.post('http://www.citywealth.cn/importNews', {
-    "SubTitle":"","Time_end":"","Time_start":"","Title":"","Page_current":"1","Position":"1","Rows_per_page":"5"
-    }).then((response) => {
-        this.artList = response.data.Data;
-        console.info("1 ", response.data.Data);
-    }).catch(function(response) {
-        console.warn("错误", response);
-    });
-  }
+    // this.$http.post('http://www.citywealth.cn/importNews', {
+    // "SubTitle":"","Time_end":"","Time_start":"","Title":"","Page_current":"1","Position":"1","Rows_per_page":"5"
+    // }).then((response) => {
+    //     this.artList = response.data.Data;
+    //     console.info("1 ", response.data.Data);
+    // }).catch(function(response) {
+    //     console.warn("错误", response);
+    // });
+  },
+  mounted() {
+      window.addEventListener('scroll', this.menu);
+  },
 }
-    
+
 </script>
