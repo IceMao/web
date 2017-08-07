@@ -13,8 +13,11 @@
     box-shadow: inset 0 -2px 0 #dcdcdc;
  }
  .headImg {
-    background: url('./../../common/images/navbarImg.jpg') no-repeat;
-    background-size: cover;
+    /* background: url('./../../common/images/navbarImg.jpg') no-repeat;
+    background-size: cover; */
+    background: #49928b;
+    border-bottom: 2px solid #c5ab9a;
+    box-shadow: 1px 2px 7px #91917b;
 }
 .headImg .navbar-nav>li>a {
     color: #fff;
@@ -38,21 +41,19 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--<ul class="nav navbar-nav">
-                    <li class="active"><a href="#">小记<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">随笔<span class="sr-only">(current)</span></a></li>
-                </ul>-->
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                        </form>
-                    </li>
-                    <li><a href="#" data-toggle="modal" data-target="#loginModal">小记</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#regiestModal">随笔</a></li>
-                </ul>
+                <div class="container"> 
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                            </form>
+                        </li>
+                        <li><a href="#" data-toggle="modal" data-target="#loginModal">小记</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#regiestModal">随笔</a></li>
+                    </ul>
+                </div> 
             </div>
         </div>
     </nav>

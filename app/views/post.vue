@@ -127,10 +127,12 @@
             <!-- 推荐 end-->
         </div>
     </div>
+    <c-footer></c-footer>
 </div>
 </template>
 <script>
     import cHeader from 'components/c-header';
+    import cFooter from 'components/c-footer.vue';
     export default {
         data(){
             return {
@@ -138,7 +140,8 @@
             }
         },
         components:{
-            'c-header': cHeader
+            'c-header': cHeader,
+            'c-footer': cFooter,
         },
         created(){
             console.info("post999")

@@ -13,7 +13,7 @@
  </style>
 <template>
   <footer>
-      Powered by: ice Copyright © IceMao
+      Powered by: ice Copyright © <a href="http://about.icemao.cn" target="_black" title="AboutMe">IceMao</a>
   </footer>
 </template>
 

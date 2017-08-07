@@ -62,7 +62,7 @@
                 <input type="text" placeholder="title" v-model="post.Title">
                 <input type="text" placeholder="type" v-model="post.CategoryName">
                 <div class="edit-set">
-                    <a href="index">Ice</a>
+                    <a href="index" target="_black">Ice</a>
                     <span @click="save()">Save</span>
                 </div>
                 <textarea class="editcontent" name="ArticleContent" id="txt_ArticleContent" v-model="post.ArticleContent" @keyup="compile()"></textarea>
