@@ -89,8 +89,10 @@ module.exports = {
         alias: {
             'scripts': path.join(appPath, 'common/scripts'),
             'components': path.join(appPath, 'views/components'),
+            'filters': path.join(appPath, 'views/filters'),
             'styles': path.join(appPath, 'common/styles'),
-            'vue': path.join(__dirname, '/node_modules/vue/dist/vue')
+            'vue': path.join(__dirname, '/node_modules/vue/dist/vue'),
+            'mock': path.join(appPath, 'mock'),
         }
     },
     module: {

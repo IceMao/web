@@ -1,11 +1,12 @@
 /**
  * Created by ice on 2017/7/20.
  */
-import Vue from "vue";
-import vueRouter from 'vue-router';
-import vueResource from 'vue-resource';
-import routes from './config/routes';
-import showdown from 'showdown';
+import Vue from "vue"
+import vueRouter from 'vue-router'
+import vueResource from 'vue-resource'
+import routes from './config/routes'
+import showdown from 'showdown'
+
 Vue.use(vueRouter);
 Vue.use(vueResource);
 
@@ -17,6 +18,13 @@ require('styles/common.css');
 require('scripts/bootstrap.min.js');
 require('scripts/jquery.goup.min.js');
 // require('scripts/showdown.js');
+
+//mock
+require('mock/index.js');
+
+//filters
+require('./views/filters/filter.js');
+
 //路由
 const router = new vueRouter({
     hashbang: false,

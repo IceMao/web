@@ -127,13 +127,7 @@
                 <div class="tag">   
                     <p class="tag-title">Tags</p>
                     <ul class="tag-list">
-                        <li>NEW</li>
-                        <li>HTML</li>
-                        <li>NODEJs</li>
-                        <li>VueJs</li>
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>AngularJs</li>
+                        <li v-for='item in tags'>{{item.tag | uppercase }}</li>
                     </ul>
                 </div>
             </div>
@@ -151,7 +145,7 @@ import cFooter from 'components/c-footer.vue';
 export default {
   data(){
     return {
-      scroll: ''
+      tags: ''
     }
   },
   methods: {
@@ -174,18 +168,14 @@ export default {
   watch: {
   },
   created(){
-    // this.$http.post('http://www.citywealth.cn/importNews', {
-    // "SubTitle":"","Time_end":"","Time_start":"","Title":"","Page_current":"1","Position":"1","Rows_per_page":"5"
-    // }).then((response) => {
-    //     this.artList = response.data.Data;
-    //     console.info("1 ", response.data.Data);
-    // }).catch(function(response) {
-    //     console.warn("错误", response);
-    // });
+    this.$http.post('tags.json', {}).then((response) => {
+        this.tags = response.data.tags;
+    }).catch(function(response) {
+        console.warn("Error", response);
+    });
   },
   mounted() {
       window.addEventListener('scroll', this.menu);
   },
 }
-
 </script>
