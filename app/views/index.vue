@@ -74,53 +74,23 @@
 <template>
   <div>
     <c-header></c-header>
+
     <div class="index-jumbotron text-center">
         <img src="app/common/images/banner.jpg" width="100%" title="banner">
-        <a class="lead hidden-xs">编辑资源菜单 - Azure Portal SDK</a>
+        <a class="lead hidden-xs">{{topPost.Title}}</a>
     </div>
     <!-- image end-->
     <div id="content" class="container">
         <div class="row">
             <div class="col-md-9 post-list">
-                <div class="post">
-                    <h2 class="post-title"><a href="/post">编辑资源菜单 - Azure Portal SDK</a></h2>
+                
+                <div class="post" v-for="item in posts">
+                    <h2 class="post-title"><a href="/post">{{item.Title}}</a></h2>
                     <div class="post-content">
-
-                        <p>在进行Azure Portal Extension开发过程中，避免不了对资源菜单的扩展，于是菜单内容在<code>./Client/Browser/ViewModels/AssetTypeViewModel.ts</code>中。</p>
-<p>在<code>getMenuConfig</code>方法中添加一个菜单：</p>
-<pre><code class="hljs coffeescript">        <span class="hljs-reserved">var</span> <span class="hljs-attribute">yukoItem</span>: MsPortalFx.Assets.MenuItem = {
-            <span class="hljs-attribute">id</span>: <span class="hljs-string">"yuko"</span>,
-            <span class="hljs-attribute">displayText</span>: <span class="hljs-string">"Yuko Amamiya"</span>,
-            <span class="hljs-attribute">icon</span>: ClientIcons.Icons.cloudService,
-            <span class="hljs-attribute">supplyBladeReference</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-                <span class="hljs-keyword">return</span> ... <span class="hljs-regexp">//</span> 稍后将使其跳转到一个新的blade上
-            }
-        };
-</code></pre><p>找到<code>menuConfig</code>，向指定段中添加上述创建的<code>yukoItem</code>：</p>
-
+                    {{item.Content}}
                     </div>
                     <a class="post-more">MORE</a>
-                    <div class="post-time">Posted @ 04/05/2017</div>
-                </div>
-                <div class="post">
-                    <h2 class="post-title">编辑资源菜单 - Azure Portal SDK</h2>
-                    <div class="post-content">
-
-                        <p>在进行Azure Portal Extension开发过程中，避免不了对资源菜单的扩展，于是菜单内容在<code>./Client/Browser/ViewModels/AssetTypeViewModel.ts</code>中。</p>
-<p>在<code>getMenuConfig</code>方法中添加一个菜单：</p>
-<pre><code class="hljs coffeescript">        <span class="hljs-reserved">var</span> <span class="hljs-attribute">yukoItem</span>: MsPortalFx.Assets.MenuItem = {
-            <span class="hljs-attribute">id</span>: <span class="hljs-string">"yuko"</span>,
-            <span class="hljs-attribute">displayText</span>: <span class="hljs-string">"Yuko Amamiya"</span>,
-            <span class="hljs-attribute">icon</span>: ClientIcons.Icons.cloudService,
-            <span class="hljs-attribute">supplyBladeReference</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-                <span class="hljs-keyword">return</span> ... <span class="hljs-regexp">//</span> 稍后将使其跳转到一个新的blade上
-            }
-        };
-</code></pre><p>找到<code>menuConfig</code>，向指定段中添加上述创建的<code>yukoItem</code>：</p>
-
-                    </div>
-                    <div class="post-more">更多</div>
-                    <div class="post-time">Posted @ 4/5/2017</div>
+                    <div class="post-time">Posted @ {{item.CreateTime}}</div>
                 </div>
             </div>
             <div class="col-md-3">
@@ -145,7 +115,9 @@ import cFooter from 'components/c-footer.vue';
 export default {
   data(){
     return {
-      tags: ''
+      tags: '',
+      posts:'',
+      topPost:''
     }
   },
   methods: {
@@ -168,8 +140,17 @@ export default {
   watch: {
   },
   created(){
+    //tag
     this.$http.post('tags.json', {}).then((response) => {
         this.tags = response.data.tags;
+    }).catch(function(response) {
+        console.warn("Error", response);
+    });
+    //post
+    this.$http.post('post.json', {}).then((response) => {
+        this.posts = response.data.post;
+        var reverseArr = this.posts.reverse();
+        this.topPost = reverseArr[0];
     }).catch(function(response) {
         console.warn("Error", response);
     });
