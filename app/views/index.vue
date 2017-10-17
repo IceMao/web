@@ -5,6 +5,11 @@
 .index-jumbotron {
     margin: 0 0 48px;
     position: relative;
+    // background: url('./../common/images/banner.jpg');
+    // background-size: cover;
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
 }
 
 .index-jumbotron>a {
@@ -19,13 +24,20 @@
 .padd-top {
     padding-top: 48px;
 }
+.post {
+    margin-bottom: 50px;
+}
 .post-title a{
     font-family: -webkit-pictograph, 'Quicksand', sans-serif;
     text-decoration: none;
+    color: #444;
 }
 .post-content{
-    font-size: 20px;
+    font-size: 16px;
     padding-left: 12px;
+    // padding-top: 5px;
+    padding-bottom: 10px;
+    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .post-more{
     padding: 9px 18px;
@@ -34,14 +46,20 @@
     font-size: 16px;
     letter-spacing: 1px;
     display: inline-block;
-    color: #484848;
-    background: #e8e8e8;
+    color: #cecece;
+    background: #118a83;
+    border: 2px #49928b outset;
     cursor: pointer;
+    user-select: none;
 }
 .post-more:hover{
     text-decoration: none;
-    color: #2e749a;
-    background: #dcdcdc;
+}
+.post-more:active{
+    text-decoration: none;
+    color: #cecece;
+    background: rgb(7, 115, 109);
+    border: 2px #49928b inset;
 }
 .post-time{
     
@@ -85,7 +103,7 @@
             <div class="col-md-9 post-list">
                 
                 <div class="post" v-for="item in posts">
-                    <h2 class="post-title"><a href="/post">{{item.Title}}</a></h2>
+                    <h4 class="post-title"><a href="/post">{{item.Title}}</a></h4>
                     <div class="post-content">
                     {{item.Content}}
                     </div>

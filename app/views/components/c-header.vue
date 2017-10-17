@@ -7,6 +7,7 @@
  }
  .navbar {
     margin-bottom: 0;
+    margin-right: 3px;
  }
  [type=text].form-control:focus {
     -webkit-box-shadow: inset 0 -2px 0 #dcdcdc;
